@@ -128,6 +128,7 @@ add_library(${LIBRARY_NAME}_cuda
 target_include_directories(${LIBRARY_NAME}_cuda
         PUBLIC
             ${CUDA_INCLUDE_DIRS}
+            ${CMAKE_CUDA_TOOLKIT_INCLUDE_DIRECTORIES}
 )
 
 ## psl
