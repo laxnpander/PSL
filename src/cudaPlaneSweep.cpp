@@ -124,14 +124,14 @@ int CudaPlaneSweep::addImage(Mat image, CameraMatrix<double>& cam)
     {
         // add alpha channel first
         Mat corrImg;
-        cvtColor(image, corrImg, CV_BGR2BGRA);
+        cvtColor(image, corrImg, cv::COLOR_BGR2BGRA);
         cPSI.devImg.allocatePitchedAndUpload(corrImg);
     }
     else if (!colorMatchingEnabled && image.channels() == 3)
     {
         // convert to grayscale
         Mat corrImg;
-        cvtColor(image, corrImg, CV_BGR2GRAY);
+        cvtColor(image, corrImg, cv::COLOR_BGR2GRAY);
         cPSI.devImg.allocatePitchedAndUpload(corrImg);
     }
     else if(!colorMatchingEnabled && image.channels() == 1)

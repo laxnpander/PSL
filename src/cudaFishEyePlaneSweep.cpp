@@ -168,7 +168,7 @@ int CudaFishEyePlaneSweep::addImage(cv::Mat image, FishEyeCameraMatrix<double>& 
     {
         // convert to grayscale
         cv::Mat corrImg;
-        cv::cvtColor(image, corrImg, CV_BGR2GRAY);
+        cv::cvtColor(image, corrImg, cv::COLOR_BGR2GRAY);
         cPSI.devImg.allocatePitchedAndUpload(corrImg);
     }
     else if(image.channels() == 1)

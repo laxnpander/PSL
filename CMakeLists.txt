@@ -11,14 +11,15 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 
 # Fix to avoid OpenCV package confusion with ROS melodic
-find_package(OpenCV 3.3.1 EXACT QUIET)
+find_package(OpenCV 3.3.1 EXACT QUIET COMPONENTS core imgproc imgcodecs highgui)
 if (NOT OpenCV_FOUND)
-    find_package(OpenCV 3 QUIET)
+    find_package(OpenCV 3 QUIET COMPONENTS core imgproc imgcodecs highgui)
 endif()
 if (NOT OpenCV_FOUND)
-    find_package(OpenCV 4 REQUIRED)
+    find_package(OpenCV 4 REQUIRED COMPONENTS core imgproc imgcodecs highgui)
     message(WARNING "OpenCV 4 Support is experimental, use at your own risk!")
 endif()
+
 
 find_package(Boost REQUIRED COMPONENTS system filesystem)
 
